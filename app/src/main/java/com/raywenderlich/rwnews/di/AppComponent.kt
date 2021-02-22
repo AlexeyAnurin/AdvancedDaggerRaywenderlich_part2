@@ -7,19 +7,9 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, FeatureModule::class])
 @Singleton
 interface AppComponent {
-
-  fun inject(frag: NewsListFragment)
-
-  fun inject(frag: NewsDetailFragment)
-
-  /*// 1
-  @Component.Factory
-  interface Factory {
-    // 2
-    fun repository(@BindsInstance repo: NewsRepository): AppComponent
-  }*/
+    fun featureComp(): FeatureComponent
 }
 
